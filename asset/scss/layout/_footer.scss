@@ -1,0 +1,54 @@
+footer {
+    position: fixed;
+    bottom: 0; right: 6vw;
+    width: 28vw; height: 15vw;
+}
+
+.selec-wrap {
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    height: 12px;
+    text-align: center;
+    overflow: hidden;
+}
+.selec-text {
+    display: block;
+    width: 100%; height: 100%;
+    font-size: 11px;
+    line-height: 12px;
+    color: rgba(0,0,0,.45);
+    animation: select 6s cubic-bezier(.77,0,.175,1) infinite;
+    &::before {
+        content: "Scroll to see";
+        display: block;
+        position: absolute;
+        bottom: -40px;
+        right: 0;
+        left: 0;
+        animation: select-before 6s cubic-bezier(.77,0,.175,1) infinite;
+    }
+}
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; height: 100%;
+    img {
+        width: 50px; height: 50px;
+    }
+}
+@keyframes select {
+    0%,70%{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-40px);
+    }
+}
+@keyframes select-before {
+    0%,70%{
+        transform:rotate(30deg) skewX(30deg);
+    }
+    to{
+        transform:rotate(0) skewX(0);
+    }
+}
