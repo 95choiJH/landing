@@ -56,16 +56,18 @@ $(function(){
 
     split.forEach(function(v,i){
         loading.addLabel('text')
-        .fromTo(origin[i], .2, {
+        .fromTo(origin[i], .3, {
             "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+            opacity: 1
         },{
             "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
-            opacity: 1,
+            color: "rgba(209, 231, 232, .5)",
             yoyo: 1,
             repeat: 1,
         },'text')
-        .fromTo(top[i], .2,{
+        .fromTo(top[i], .3,{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+            opacity: 1
         },{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
             x: "1vw",
@@ -73,17 +75,20 @@ $(function(){
             skewX: -13,
             scaleY: 1.2, 
             "height": "50%",
+            color: "#395B64",
             opacity: 1,
             yoyo: 1,
             repeat: 1,
         },'text')
-        .fromTo(bottom[i], .2,{
+        .fromTo(bottom[i], .3,{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+            opacity: 1
         },{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
             skewX: 13,
             scaleY: .8, 
             opacity: 1,
+            color: "#A5C9CA",
             yoyo: 1,
             repeat: 1,
             onComplete: function() {$('.text'+i+'').css('display','none')}
@@ -91,14 +96,16 @@ $(function(){
     })
     
     splitLogo.forEach(function(v,i){
-        loading.fromTo($('.split-logo .origin')[i], .2, {
+        loading.fromTo($('.split-logo .origin')[i], .3, {
             "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+            opacity: 1
         },{
             "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
-            opacity: 1,
-        }, 'text+=.5')
-        .fromTo($('.split-logo .top')[i], .2,{
+            color: "rgba(209, 231, 232, .5)",
+        }, 'text+=.7')
+        .fromTo($('.split-logo .top')[i], .3,{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+            opacity: 1
         },{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
             x: "1vw",
@@ -106,39 +113,40 @@ $(function(){
             skewX: -13,
             scaleY: 1.2, 
             "height": "50%",
-            opacity: 1,
-        }, 'text+=.5')
-        .fromTo($('.split-logo .bottom')[i], .2,{
+            color: "#395B64",
+        }, 'text+=.7')
+        .fromTo($('.split-logo .bottom')[i], .3,{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+            opacity: 1
         },{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
             skewX: 13,
-            scaleY: .8, 
-            opacity: 1,
-        }, 'text+=.5')
+            scaleY: .8,
+            color: "#A5C9CA",
+        }, 'text+=.7')
     })
     // loading.to($('.other'), {
     //     opacity: 0
     // }, 'text+=1')
-    loading.to($('.other .origin'), .2, {
+    loading.to($('.other .origin'), .3, {
         "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
-        opacity: 0
-    },'text+=1')
-    .to($('.other .top'), .2,{
+        color: "#ececec"
+    },'text+=1.2')
+    .to($('.other .top'), .3,{
         "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
         x: 0,
         yPercent: 0,
         skewX: 0,
         scaleY: 1, 
+        color: "#ececec",
         "height": "51%",
-        opacity: 0
-    }, 'text+=1')
-    .to($('.other .bottom'), .2,{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
+    }, 'text+=1.2')
+    .to($('.other .bottom'), .3,{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
         skewX: 0,
         scaleY: 1,
-        opacity: 0
-    }, 'text+=1')
+        color: "#ececec",
+    }, 'text+=1.2')
     // .fromTo($('.right .origin'), .2, {
     //     "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
     // },{
@@ -164,17 +172,30 @@ $(function(){
     //     scaleY: .8,
     //     opacity: 1
     // }, 'text+=1.2')
-    .to($('.left'), {
-        x: '-22.9vw',
-        y: '-6vw',
-        opacity: 1
-    }, 'text+=1.7')
-    .to($('.right'), {
-        x: '-51.2vw',
-        y: '-6vw',
+    .to($('.left'), 1,{
+        x: '14vw',
         opacity: 1,
+        ease: Power4.easeInOut
+    }, 'text+=1.5')
+    .to($('.right'), 1,{
+        x: '-14vw',
+        opacity: 1,
+        ease: Power4.easeInOut
+    }, 'text+=1.5')
+    .to($('.left'), 1,{
+        x: '-17.9vw',
+        y: '-5.5vw',
+        ease: Power4.easeInOut,
+    }, 'text+=2.3')
+    .to($('.right'), 1,{
+        x: '-46.2vw',
+        y: '-5.5vw',
+        ease: Power4.easeInOut,
         onComplete: function() {$('.loading').addClass('done')}
-    }, 'text+=1.7')
+    }, 'text+=2.3')
+    .to($('.sc-work'), 1, {
+        opacity: 1
+    })
     // gsap.utils.toArray($('.split')).forEach(function(split, i){
     //     gsap.to(split,{onComplete: function() {console.log(split.index);/* split.addClass('active') */}})
     // })

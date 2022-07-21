@@ -46,7 +46,8 @@ body {
 .origin {
     white-space: nowrap;
     line-height: 1;
-    color: rgba(#d1e7e8, .5);
+    color: rgba(rgb(209, 231, 232), .5);
+    opacity: 0;
     // text-shadow: 1px 4px .4vw #ececec, 0 0 0 #3e3e3f, 1px 4px .4vw #ececec;
 }
 .top {
@@ -55,19 +56,21 @@ body {
     top: 0;
     overflow: hidden;
     height: 51%;
-    color: #395B64;
+    color: #ececec;
     text-shadow: .075vw -.015vw .4vw rgba(0,0,0,0);
     z-index: 1;
+    opacity: 0;
     // transition: all .5s ease-out;
 }
 .bottom {
     position: absolute;
     left: 0;
     top: 0;
-    color: #A5C9CA;
+    color: #ececec;
     transform: skew(0) scale(1, 1);
     clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
     text-shadow: .075vw -.015vw .4vw rgba(0,0,0,0);
     transition: color .1s ease-out;
     backface-visibility: hidden;
+    opacity: 0;
 }

@@ -241,6 +241,7 @@ body {
   white-space: nowrap;
   line-height: 1;
   color: rgba(209, 231, 232, 0.5);
+  opacity: 0;
 }
 
 .top {
@@ -249,16 +250,17 @@ body {
   top: 0;
   overflow: hidden;
   height: 51%;
-  color: #395B64;
+  color: #ececec;
   text-shadow: 0.075vw -0.015vw 0.4vw rgba(0, 0, 0, 0);
   z-index: 1;
+  opacity: 0;
 }
 
 .bottom {
   position: absolute;
   left: 0;
   top: 0;
-  color: #A5C9CA;
+  color: #ececec;
   transform: skew(0) scale(1, 1);
   -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
           clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
@@ -266,6 +268,7 @@ body {
   transition: color 0.1s ease-out;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  opacity: 0;
 }
 
 footer {
@@ -375,8 +378,11 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%) skew(10deg) rotate(-5deg);
 }
-.loading .text-box .text span {
-  opacity: 0;
+.loading .text-box .text.text1 {
+  z-index: 2;
+}
+.loading .text-box .text.text2 {
+  z-index: 1;
 }
 .loading .split-logo {
   position: relative;
@@ -434,6 +440,7 @@ footer {
 
 .sc-work {
   padding-bottom: 170px;
+  opacity: 0;
 }
 
 .work-img {
