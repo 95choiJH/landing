@@ -15,11 +15,8 @@
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%) skew(10deg) rotate(-5deg);
-            &.text1 {
-                top: 25%;
-            }
-            &.text3 {
-                top: 75%;
+            span {
+                opacity: 0;
             }
         }
         

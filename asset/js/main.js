@@ -9,7 +9,7 @@ $(function(){
         arr2 = text.split("");
         $(this).empty();
         arr.forEach(function(v){
-            if(i == 1) {
+            if(i == 2) {
                 console.log(index);
                 if(index < 1) {
                     $('.text'+(i+1)+'').append(`<div class="split left"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
@@ -27,25 +27,26 @@ $(function(){
     })
 
     loading = gsap.timeline()
-    .set($('.text1'), {
-        x: "-111vw"
-    })
-    .set($('.text2'), {
-        x: "75vw"
-    })
-    .set($('.text3'), {
-        x: "-70vw"
-    })
+    // .addLabel('in')
+    // .set($('.text1'), {
+    //     x: "-111vw"
+    // })
+    // .set($('.text2'), {
+    //     x: "75vw"
+    // })
+    // .set($('.text3'), {
+    //     x: "-70vw"
+    // })
 
-    .to($('.text1'), {
-        x: "-15vw"
-    })
-    .to($('.text2'), {
-        x: "5vw"
-    })
-    .to($('.text3'), {
-        x: "25vw"
-    })
+    // .to($('.text1'), {
+    //     x: "-15vw"
+    // },'i')
+    // .to($('.text2'), {
+    //     x: "5vw"
+    // },'in')
+    // .to($('.text3'), {
+    //     x: "25vw",
+    // },'in')
 
     const split = gsap.utils.toArray($('.split'))
     const text1 = gsap.utils.toArray($('.text1 .split'))
@@ -59,9 +60,10 @@ $(function(){
             "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
         },{
             "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+            opacity: 1,
             yoyo: 1,
             repeat: 1,
-        },'text-=.1.5')
+        },'text')
         .fromTo(top[i], .2,{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
         },{
@@ -71,32 +73,35 @@ $(function(){
             skewX: -13,
             scaleY: 1.2, 
             "height": "50%",
+            opacity: 1,
             yoyo: 1,
             repeat: 1,
-        },'text-=.1.5')
+        },'text')
         .fromTo(bottom[i], .2,{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
         },{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
             skewX: 13,
             scaleY: .8, 
+            opacity: 1,
             yoyo: 1,
             repeat: 1,
-        },'text-=.1.5')
+        },'text')
     })
-    loading.to($('.text1'), {
-        opacity: 0
-    }, 'text+=.5')
-    .to($('.text3'), {
-        opacity: 0
-    }, 'text+=.5')
-    .to($('.other'), {
-        opacity: 0
-    }, 'text+=.5')
-    .fromTo($('.left .origin'), .2, {
+    // loading.to($('.text1'), {
+    //     opacity: 0
+    // }, 'text+=.5')
+    // .to($('.text3'), {
+    //     opacity: 0
+    // }, 'text+=.5')
+    // .to($('.other'), {
+    //     opacity: 0
+    // }, 'text+=.5')
+    loading.fromTo($('.left .origin'), .2, {
         "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
     },{
         "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+        opacity: 1
     }, 'text+=.8')
     .fromTo($('.left .top'), .2,{
         "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
@@ -107,18 +112,21 @@ $(function(){
         skewX: -13,
         scaleY: 1.2, 
         "height": "50%",
+        opacity: 1
     }, 'text+=.8')
     .fromTo($('.left .bottom'), .2,{
         "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
     },{
         "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
         skewX: 13,
-        scaleY: .8, 
+        scaleY: .8,
+        opacity: 1
     }, 'text+=.8')
     .fromTo($('.right .origin'), .2, {
         "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
     },{
         "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+        opacity: 1
     }, 'text+=.8')
     .fromTo($('.right .top'), .2,{
         "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
@@ -129,21 +137,25 @@ $(function(){
         skewX: -13,
         scaleY: 1.2, 
         "height": "50%",
+        opacity: 1
     }, 'text+=.8')
     .fromTo($('.right .bottom'), .2,{
         "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
     },{
         "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
         skewX: 13,
-        scaleY: .8, 
+        scaleY: .8,
+        opacity: 1
     }, 'text+=.8')
     .to($('.left'), {
         x: '-22.9vw',
-        y: '-6vw'
+        y: '-6vw',
+        opacity: 1
     }, 'text+=1')
     .to($('.right'), {
         x: '-51.2vw',
         y: '-6vw',
+        opacity: 1,
         onComplete: function() {$('.loading').addClass('done')}
     }, 'text+=1')
     // gsap.utils.toArray($('.split')).forEach(function(split, i){

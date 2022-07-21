@@ -375,11 +375,8 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%) skew(10deg) rotate(-5deg);
 }
-.loading .text-box .text.text1 {
-  top: 25%;
-}
-.loading .text-box .text.text3 {
-  top: 75%;
+.loading .text-box .text span {
+  opacity: 0;
 }
 .loading.done {
   display: none;
