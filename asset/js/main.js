@@ -117,34 +117,28 @@ $(function(){
             opacity: 1,
         }, 'text+=.5')
     })
-    loading.to($('.other'), {
+    // loading.to($('.other'), {
+    //     opacity: 0
+    // }, 'text+=1')
+    loading.to($('.other .origin'), .2, {
+        "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+        opacity: 0
+    },'text+=1')
+    .to($('.other .top'), .2,{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+        x: 0,
+        yPercent: 0,
+        skewX: 0,
+        scaleY: 1, 
+        "height": "51%",
         opacity: 0
     }, 'text+=1')
-    // loading.fromTo($('.left .origin'), .2, {
-    //     "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
-    // },{
-    //     "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
-    //     opacity: 1
-    // }, 'text+=1.2')
-    // .fromTo($('.left .top'), .2,{
-    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
-    // },{
-    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
-    //     x: "1vw",
-    //     yPercent: -9,
-    //     skewX: -13,
-    //     scaleY: 1.2, 
-    //     "height": "50%",
-    //     opacity: 1
-    // }, 'text+=1.2')
-    // .fromTo($('.left .bottom'), .2,{
-    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
-    // },{
-    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
-    //     skewX: 13,
-    //     scaleY: .8,
-    //     opacity: 1
-    // }, 'text+=1.2')
+    .to($('.other .bottom'), .2,{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
+        skewX: 0,
+        scaleY: 1,
+        opacity: 0
+    }, 'text+=1')
     // .fromTo($('.right .origin'), .2, {
     //     "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
     // },{
