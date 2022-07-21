@@ -5,15 +5,16 @@ $(function(){
         var text = $(this).text();
         var index= 0;
 
-        arr = text.split("");
+        arr = text.split(" ");
+        arr2 = text.split("");
         $(this).empty();
         arr.forEach(function(v){
             if(i == 1) {
                 console.log(index);
-                if(index < 3) {
+                if(index < 1) {
                     $('.text'+(i+1)+'').append(`<div class="split left"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
                     index++;
-                } else if(index >= 3 && index <= 8){
+                } else if(index == 1){
                     $('.text'+(i+1)+'').append(`<div class="split other"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
                     index++;
                 } else {
@@ -26,6 +27,25 @@ $(function(){
     })
 
     loading = gsap.timeline()
+    .set($('.text1'), {
+        x: "-111vw"
+    })
+    .set($('.text2'), {
+        x: "75vw"
+    })
+    .set($('.text3'), {
+        x: "-70vw"
+    })
+
+    .to($('.text1'), {
+        x: "-15vw"
+    })
+    .to($('.text2'), {
+        x: "5vw"
+    })
+    .to($('.text3'), {
+        x: "25vw"
+    })
 
     const split = gsap.utils.toArray($('.split'))
     const text1 = gsap.utils.toArray($('.text1 .split'))
@@ -35,82 +55,97 @@ $(function(){
 
     split.forEach(function(v,i){
         loading.addLabel('text')
-        loading.to(origin[i], .2,{
-            "text-shadow": "1px 4px 6px #ececec, 0 0 0 #3e3e3f, 1px 4px 6px #ececec",
-        },'text-=.1')
-        .to(top[i], .2,{
+        .fromTo(origin[i], .2, {
+            "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+        },{
+            "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+            yoyo: 1,
+            repeat: 1,
+        },'text-=.1.5')
+        .fromTo(top[i], .2,{
+            "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+        },{
+            "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
             x: "1vw",
             yPercent: -9,
             skewX: -13,
             scaleY: 1.2, 
-            "text-shadow": "0 0 1px rgba(0,0,0,0.2)",
             "height": "50%",
-        },'text-=.1')
-        .to(bottom[i], .2,{
+            yoyo: 1,
+            repeat: 1,
+        },'text-=.1.5')
+        .fromTo(bottom[i], .2,{
+            "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+        },{
+            "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
             skewX: 13,
             scaleY: .8, 
-            "text-shadow": "0 0 1px rgba(0,0,0,0.3)",
-            "color": "#c7c7c7"
-        },'text-=.1')
+            yoyo: 1,
+            repeat: 1,
+        },'text-=.1.5')
     })
-    loading.to($('.text1 .origin'), .2,{
-        "text-shadow": "none",
-    },'text')
-    .to($('.text1 .top'), .2,{
-        x: 0,
-        yPercent: 0,
-        skewX: 0,
-        scaleY: 1, 
-        "text-shadow": "0 0 1px rgba(0,0,0,0)",
-        "height": "51%",
-    },'text')
-    .to($('.text1 .bottom'), .2,{
-        skewX: 0,
-        scaleY: 1, 
-        "text-shadow": "0 0 1px rgba(0,0,0,0)",
-        "color": "#ececec"
-    },'text')
-    .to($('.other .origin'), .2,{
-        "text-shadow": "none",
-    },'text')
-    .to($('.other .top'), .2,{
-        x: 0,
-        yPercent: 0,
-        skewX: 0,
-        scaleY: 1, 
-        "text-shadow": "0 0 1px rgba(0,0,0,0)",
-        "height": "51%",
-    },'text')
-    .to($('.other .bottom'), .2,{
-        skewX: 0,
-        scaleY: 1, 
-        "text-shadow": "0 0 1px rgba(0,0,0,0)",
-        "color": "#ececec"
-    },'text')
-    .to($('.text3 .origin'), .2,{
-        "text-shadow": "none",
-    },'text')
-    .to($('.text3 .top'), .2,{
-        x: 0,
-        yPercent: 0,
-        skewX: 0,
-        scaleY: 1, 
-        "text-shadow": "0 0 1px rgba(0,0,0,0)",
-        "height": "51%",
-    },'text')
-    .to($('.text3 .bottom'), .2,{
-        skewX: 0,
-        scaleY: 1, 
-        "text-shadow": "0 0 1px rgba(0,0,0,0)",
-        "color": "#ececec",
-    },'text')
+    loading.to($('.text1'), {
+        opacity: 0
+    }, 'text+=.5')
+    .to($('.text3'), {
+        opacity: 0
+    }, 'text+=.5')
+    .to($('.other'), {
+        opacity: 0
+    }, 'text+=.5')
+    .fromTo($('.left .origin'), .2, {
+        "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+    },{
+        "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+    }, 'text+=.8')
+    .fromTo($('.left .top'), .2,{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+    },{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
+        x: "1vw",
+        yPercent: -9,
+        skewX: -13,
+        scaleY: 1.2, 
+        "height": "50%",
+    }, 'text+=.8')
+    .fromTo($('.left .bottom'), .2,{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+    },{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
+        skewX: 13,
+        scaleY: .8, 
+    }, 'text+=.8')
+    .fromTo($('.right .origin'), .2, {
+        "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+    },{
+        "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+    }, 'text+=.8')
+    .fromTo($('.right .top'), .2,{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+    },{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
+        x: "1vw",
+        yPercent: -9,
+        skewX: -13,
+        scaleY: 1.2, 
+        "height": "50%",
+    }, 'text+=.8')
+    .fromTo($('.right .bottom'), .2,{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+    },{
+        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
+        skewX: 13,
+        scaleY: .8, 
+    }, 'text+=.8')
     .to($('.left'), {
-        x: "16vw"
-    },'text')
+        x: '-22.9vw',
+        y: '-6vw'
+    }, 'text+=1')
     .to($('.right'), {
-        x: "-16vw",
-    },'text')
-
+        x: '-51.2vw',
+        y: '-6vw',
+        onComplete: function() {$('.loading').addClass('done')}
+    }, 'text+=1')
     // gsap.utils.toArray($('.split')).forEach(function(split, i){
     //     gsap.to(split,{onComplete: function() {console.log(split.index);/* split.addClass('active') */}})
     // })

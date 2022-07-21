@@ -11,7 +11,7 @@
         flex-direction: column;
         .text {
             display: flex;
-            gap: 2px;
+            gap: 5px;
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%) skew(10deg) rotate(-5deg);
@@ -22,55 +22,10 @@
                 top: 75%;
             }
         }
-        .split {
-            position: relative;
-            &.active {
-                .origin {
-                    text-shadow: 1px 4px 6px #ececec, 0 0 0 #3e3e3f, 1px 4px 6px #ececec;
-                    opacity: 1;
-                }
-                .top {
-                    transform: translate(1.1vw, -9%) skew(-13deg) scale(1, 1.2);
-                    text-shadow: 0 0 1px rgba(0,0,0,0.2);
-                    height: 50%;
-                    color: #E43A19;
-                }
-                .bottom {
-                    transform: skew(13deg) scale(1, 0.8);
-                    text-shadow: 0 0 1px rgba(0,0,0,0.3);
-                    color: #111F4D;
-                }
-            }
-        }
-        .left, .right {
-            z-index: 1;
-        }
-        .origin {
-            white-space: nowrap;
-            line-height: 1;
-            color: rgba(#fff,.5);
-        }
-        .top {
-            position: absolute;
-            left: 0;
-            top: 0;
-            overflow: hidden;
-            height: 51%;
-            color: #ececec;
-            text-shadow: 0 0 1px rgba(0,0,0,0);
-            // transition: all .5s ease-out;
-        }
-        .bottom {
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: #ececec;
-            transform: skew(0) scale(1, 1);
-            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
-            text-shadow: 0 0 1px rgba(0,0,0,0);
-            transition: color .1s ease-out;
-            backface-visibility: hidden;
-        }
+        
+    }
+    &.done {
+        display: none;
     }
 }
 .inner {
@@ -83,59 +38,36 @@
 .sc-logo {
     width: 28vw;    
     padding-right: 6vw;
-    h1 {
-        position: relative;
-        display: block;
-        height: 20vw;
-        font-family: 'Teko', sans-serif;
-        font-size: 10vw;
-        span {
+    font-family: 'Teko', sans-serif;
+    font-size: 10vw;
+    .logo {
+        transform: translate(0.1vw ,-2.7vw) skew(10deg) rotate(-5deg);
+        .logo-origin {
+            text-shadow: 1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec;
+            white-space: nowrap;
+            line-height: 1;
+            color: rgba(209, 231, 232, 0.5);
+        }
+        .logo-top {
             position: absolute;
-            top: 0; left: 0;
-        }
-        .cut1 {
-            top: -2px; left: 5px;
-            clip-path: polygon(0 0, 100% 0, 100% 43%, 0 34%);
-            color: #f00;
-        }
-        .cut2 {
-            clip-path: polygon(0 34%, 100% 43%, 100% 50%, 0 60%);
-            color: #00f;
-        }
-        .cut3 {
-            top: 2px; left: -5px;
-            clip-path: polygon(0 60%, 100% 50%, 100% 100%, 0 100%);
-            color: #0ff;
-        }
-        .line1 {
-            position: absolute;
-            top: 29%; left: 5px;
-            transform: rotate(3.6deg);
-            width: 100%; height: 1px;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            color: #395B64;
+            text-shadow: .075vw -.015vw .4vw rgba(0,0,0,0.2);
+            height: 50%;
+            transform: translate(1vw, -9%) skew(-13deg) scale(1, 1.2);
             z-index: 1;
-            background-color: rgba(0,0,0,.2);
-            &::after {
-                content: '';
-                display: block;
-                height: 10px;
-                filter: blur(2px);
-                background: linear-gradient(0, transparent 0%, #222 90%, #000000 100%);
-            }
         }
-        .line2 {
+        .logo-bottom {
             position: absolute;
-            top: 42%; left: -5px;
-            transform: rotate(-4deg);
-            width: 100%; height: 1px;
-            z-index: 1;
-            background-color: rgba(0,0,0,.2);
-            &::after {
-                content: '';
-                display: block;
-                height: 10px;
-                filter: blur(2px);
-                background: linear-gradient(0, transparent 0%, #222 90%, #000000 100%);
-            }
+            left: 0;
+            top: 0;
+            color: #A5C9CA;
+            transform: skew(13deg) scale(1, .8);
+            text-shadow: rgb(0 0 0 / 30%) 0.075vw -0.015vw 0.4vw;
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+            transition: color 0.1s ease-out;
         }
     }
 }
