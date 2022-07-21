@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic&family=Teko:wght@700&display=swap");
 @font-face {
   font-family: "Untitled Sans Medium";
   src: url("../fonts/Untitled Sans Medium.woff2") format("woff2");
@@ -312,6 +312,85 @@ footer {
     transform: rotate(0) skewX(0);
   }
 }
+.loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: "Teko", sans-serif;
+  font-size: 10vw;
+  color: #ececec;
+  background-color: #ececec;
+  z-index: 100;
+}
+.loading .text-box {
+  display: flex;
+  flex-direction: column;
+}
+.loading .text-box .text {
+  display: flex;
+  gap: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skew(10deg) rotate(-5deg);
+}
+.loading .text-box .text.text1 {
+  top: 25%;
+}
+.loading .text-box .text.text3 {
+  top: 75%;
+}
+.loading .text-box .split {
+  position: relative;
+}
+.loading .text-box .split.active .origin {
+  text-shadow: 1px 4px 6px #ececec, 0 0 0 #3e3e3f, 1px 4px 6px #ececec;
+  opacity: 1;
+}
+.loading .text-box .split.active .top {
+  transform: translate(1.1vw, -9%) skew(-13deg) scale(1, 1.2);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  height: 50%;
+  color: #E43A19;
+}
+.loading .text-box .split.active .bottom {
+  transform: skew(13deg) scale(1, 0.8);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  color: #111F4D;
+}
+.loading .text-box .left, .loading .text-box .right {
+  z-index: 1;
+}
+.loading .text-box .origin {
+  white-space: nowrap;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.5);
+}
+.loading .text-box .top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  height: 51%;
+  color: #ececec;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.loading .text-box .bottom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ececec;
+  transform: skew(0) scale(1, 1);
+  -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition: color 0.1s ease-out;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
 .inner {
   display: flex;
   justify-content: space-between;
@@ -325,11 +404,70 @@ footer {
   width: 28vw;
   padding-right: 6vw;
 }
-.sc-logo img {
+.sc-logo h1 {
+  position: relative;
+  display: block;
+  height: 20vw;
+  font-family: "Teko", sans-serif;
+  font-size: 10vw;
+}
+.sc-logo h1 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sc-logo h1 .cut1 {
+  top: -2px;
+  left: 5px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 43%, 0 34%);
+          clip-path: polygon(0 0, 100% 0, 100% 43%, 0 34%);
+  color: #f00;
+}
+.sc-logo h1 .cut2 {
+  -webkit-clip-path: polygon(0 34%, 100% 43%, 100% 50%, 0 60%);
+          clip-path: polygon(0 34%, 100% 43%, 100% 50%, 0 60%);
+  color: #00f;
+}
+.sc-logo h1 .cut3 {
+  top: 2px;
+  left: -5px;
+  -webkit-clip-path: polygon(0 60%, 100% 50%, 100% 100%, 0 100%);
+          clip-path: polygon(0 60%, 100% 50%, 100% 100%, 0 100%);
+  color: #0ff;
+}
+.sc-logo h1 .line1 {
+  position: absolute;
+  top: 29%;
+  left: 5px;
+  transform: rotate(3.6deg);
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 1px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.sc-logo h1 .line1::after {
+  content: "";
+  display: block;
+  height: 10px;
+  filter: blur(2px);
+  background: linear-gradient(0, transparent 0%, #222 90%, #000000 100%);
+}
+.sc-logo h1 .line2 {
+  position: absolute;
+  top: 42%;
+  left: -5px;
+  transform: rotate(-4deg);
+  width: 100%;
+  height: 1px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.sc-logo h1 .line2::after {
+  content: "";
+  display: block;
+  height: 10px;
+  filter: blur(2px);
+  background: linear-gradient(0, transparent 0%, #222 90%, #000000 100%);
 }
 
 .sc-work {

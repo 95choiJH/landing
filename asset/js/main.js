@@ -1,4 +1,136 @@
 $(function(){
+
+    $('.text').each(function(i,v){
+        var arr = new Array();
+        var text = $(this).text();
+        var index= 0;
+
+        arr = text.split("");
+        $(this).empty();
+        arr.forEach(function(v){
+            if(i == 1) {
+                console.log(index);
+                if(index < 3) {
+                    $('.text'+(i+1)+'').append(`<div class="split left"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
+                    index++;
+                } else if(index >= 3 && index <= 8){
+                    $('.text'+(i+1)+'').append(`<div class="split other"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
+                    index++;
+                } else {
+                    $('.text'+(i+1)+'').append(`<div class="split right"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
+                }
+            } else {
+                $('.text'+(i+1)+'').append(`<div class="split"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
+            }
+        })
+    })
+
+    loading = gsap.timeline()
+
+    const split = gsap.utils.toArray($('.split'))
+    const text1 = gsap.utils.toArray($('.text1 .split'))
+    const origin = gsap.utils.toArray($('.origin'))
+    const top = gsap.utils.toArray($('.top'))
+    const bottom = gsap.utils.toArray($('.bottom'))
+
+    split.forEach(function(v,i){
+        loading.addLabel('text')
+        loading.to(origin[i], .2,{
+            "text-shadow": "1px 4px 6px #ececec, 0 0 0 #3e3e3f, 1px 4px 6px #ececec",
+        },'text-=.1')
+        .to(top[i], .2,{
+            x: "1vw",
+            yPercent: -9,
+            skewX: -13,
+            scaleY: 1.2, 
+            "text-shadow": "0 0 1px rgba(0,0,0,0.2)",
+            "height": "50%",
+        },'text-=.1')
+        .to(bottom[i], .2,{
+            skewX: 13,
+            scaleY: .8, 
+            "text-shadow": "0 0 1px rgba(0,0,0,0.3)",
+            "color": "#c7c7c7"
+        },'text-=.1')
+    })
+    loading.to($('.text1 .origin'), .2,{
+        "text-shadow": "none",
+    },'text')
+    .to($('.text1 .top'), .2,{
+        x: 0,
+        yPercent: 0,
+        skewX: 0,
+        scaleY: 1, 
+        "text-shadow": "0 0 1px rgba(0,0,0,0)",
+        "height": "51%",
+    },'text')
+    .to($('.text1 .bottom'), .2,{
+        skewX: 0,
+        scaleY: 1, 
+        "text-shadow": "0 0 1px rgba(0,0,0,0)",
+        "color": "#ececec"
+    },'text')
+    .to($('.other .origin'), .2,{
+        "text-shadow": "none",
+    },'text')
+    .to($('.other .top'), .2,{
+        x: 0,
+        yPercent: 0,
+        skewX: 0,
+        scaleY: 1, 
+        "text-shadow": "0 0 1px rgba(0,0,0,0)",
+        "height": "51%",
+    },'text')
+    .to($('.other .bottom'), .2,{
+        skewX: 0,
+        scaleY: 1, 
+        "text-shadow": "0 0 1px rgba(0,0,0,0)",
+        "color": "#ececec"
+    },'text')
+    .to($('.text3 .origin'), .2,{
+        "text-shadow": "none",
+    },'text')
+    .to($('.text3 .top'), .2,{
+        x: 0,
+        yPercent: 0,
+        skewX: 0,
+        scaleY: 1, 
+        "text-shadow": "0 0 1px rgba(0,0,0,0)",
+        "height": "51%",
+    },'text')
+    .to($('.text3 .bottom'), .2,{
+        skewX: 0,
+        scaleY: 1, 
+        "text-shadow": "0 0 1px rgba(0,0,0,0)",
+        "color": "#ececec",
+    },'text')
+    .to($('.left'), {
+        x: "16vw"
+    },'text')
+    .to($('.right'), {
+        x: "-16vw",
+    },'text')
+
+    // gsap.utils.toArray($('.split')).forEach(function(split, i){
+    //     gsap.to(split,{onComplete: function() {console.log(split.index);/* split.addClass('active') */}})
+    // })
+
+    // $('.split').each(function(i){
+        
+    //     setTimeout(() => {$(this).addClass('active');}, 2000);
+    // })
+    // console.log(arr);
+
+    // .addLabel('load')
+    // .to($('.text1'),1,{y: -50, ease: Power4.easeInOut,}, 'load+=.5')
+    // .to($('.text2'),{onComplete: function() {$('.text2').addClass('active')}}, 'load+=.6')
+    // .to($('.text3'),{onComplete: function() {$('.text3').addClass('active')}}, 'load+=1.5')
+    // .to($('.text2'),1,{xPercent: 0, ease: Power4.easeIn, delay: 1}, 'load')
+    // .to($('.text3'),1,{xPercent: 200, ease: Power4.easeIn, delay: 1}, 'load')
+
+    
+    // gsap.delayedCall(1.5, $('.text2').addClass('active'))
+
     var scrollMove = true;
     var activeIndex = 1;
     $('.active-num').text(activeIndex)
