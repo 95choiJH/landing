@@ -10,15 +10,14 @@ $(function(){
         $(this).empty();
         arr.forEach(function(v){
             if(i == 2) {
-                console.log(index);
                 if(index < 1) {
-                    $('.text'+(i+1)+'').append(`<div class="split left"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
+                    $('.text'+(i+1)+'').append(`<div class="split-logo left"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
                     index++;
                 } else if(index == 1){
-                    $('.text'+(i+1)+'').append(`<div class="split other"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
+                    $('.text'+(i+1)+'').append(`<div class="split-logo other"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
                     index++;
                 } else {
-                    $('.text'+(i+1)+'').append(`<div class="split right"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
+                    $('.text'+(i+1)+'').append(`<div class="split-logo right"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
                 }
             } else {
                 $('.text'+(i+1)+'').append(`<div class="split"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
@@ -49,6 +48,7 @@ $(function(){
     // },'in')
 
     const split = gsap.utils.toArray($('.split'))
+    const splitLogo = gsap.utils.toArray($('.split-logo'))
     const text1 = gsap.utils.toArray($('.text1 .split'))
     const origin = gsap.utils.toArray($('.origin'))
     const top = gsap.utils.toArray($('.top'))
@@ -86,78 +86,101 @@ $(function(){
             opacity: 1,
             yoyo: 1,
             repeat: 1,
+            onComplete: function() {$('.text'+i+'').css('display','none')}
         },'text')
     })
-    // loading.to($('.text1'), {
-    //     opacity: 0
-    // }, 'text+=.5')
-    // .to($('.text3'), {
-    //     opacity: 0
-    // }, 'text+=.5')
-    // .to($('.other'), {
-    //     opacity: 0
-    // }, 'text+=.5')
-    loading.fromTo($('.left .origin'), .2, {
-        "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
-    },{
-        "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
-        opacity: 1
-    }, 'text+=.8')
-    .fromTo($('.left .top'), .2,{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
-    },{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
-        x: "1vw",
-        yPercent: -9,
-        skewX: -13,
-        scaleY: 1.2, 
-        "height": "50%",
-        opacity: 1
-    }, 'text+=.8')
-    .fromTo($('.left .bottom'), .2,{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
-    },{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
-        skewX: 13,
-        scaleY: .8,
-        opacity: 1
-    }, 'text+=.8')
-    .fromTo($('.right .origin'), .2, {
-        "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
-    },{
-        "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
-        opacity: 1
-    }, 'text+=.8')
-    .fromTo($('.right .top'), .2,{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
-    },{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
-        x: "1vw",
-        yPercent: -9,
-        skewX: -13,
-        scaleY: 1.2, 
-        "height": "50%",
-        opacity: 1
-    }, 'text+=.8')
-    .fromTo($('.right .bottom'), .2,{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
-    },{
-        "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
-        skewX: 13,
-        scaleY: .8,
-        opacity: 1
-    }, 'text+=.8')
+    
+    splitLogo.forEach(function(v,i){
+        loading.fromTo($('.split-logo .origin')[i], .2, {
+            "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+        },{
+            "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+            opacity: 1,
+        }, 'text+=.5')
+        .fromTo($('.split-logo .top')[i], .2,{
+            "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+        },{
+            "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
+            x: "1vw",
+            yPercent: -9,
+            skewX: -13,
+            scaleY: 1.2, 
+            "height": "50%",
+            opacity: 1,
+        }, 'text+=.5')
+        .fromTo($('.split-logo .bottom')[i], .2,{
+            "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+        },{
+            "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
+            skewX: 13,
+            scaleY: .8, 
+            opacity: 1,
+        }, 'text+=.5')
+    })
+    loading.to($('.other'), {
+        opacity: 0
+    }, 'text+=1')
+    // loading.fromTo($('.left .origin'), .2, {
+    //     "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+    // },{
+    //     "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+    //     opacity: 1
+    // }, 'text+=1.2')
+    // .fromTo($('.left .top'), .2,{
+    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+    // },{
+    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
+    //     x: "1vw",
+    //     yPercent: -9,
+    //     skewX: -13,
+    //     scaleY: 1.2, 
+    //     "height": "50%",
+    //     opacity: 1
+    // }, 'text+=1.2')
+    // .fromTo($('.left .bottom'), .2,{
+    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+    // },{
+    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
+    //     skewX: 13,
+    //     scaleY: .8,
+    //     opacity: 1
+    // }, 'text+=1.2')
+    // .fromTo($('.right .origin'), .2, {
+    //     "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
+    // },{
+    //     "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
+    //     opacity: 1
+    // }, 'text+=1.2')
+    // .fromTo($('.right .top'), .2,{
+    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+    // },{
+    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
+    //     x: "1vw",
+    //     yPercent: -9,
+    //     skewX: -13,
+    //     scaleY: 1.2, 
+    //     "height": "50%",
+    //     opacity: 1
+    // }, 'text+=1.2')
+    // .fromTo($('.right .bottom'), .2,{
+    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
+    // },{
+    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
+    //     skewX: 13,
+    //     scaleY: .8,
+    //     opacity: 1
+    // }, 'text+=1.2')
     .to($('.left'), {
         x: '-22.9vw',
         y: '-6vw',
         opacity: 1
-    }, 'text+=1')
+    }, 'text+=1.7')
     .to($('.right'), {
         x: '-51.2vw',
         y: '-6vw',
         opacity: 1,
         onComplete: function() {$('.loading').addClass('done')}
-    }, 'text+=1')
+    }, 'text+=1.7')
     // gsap.utils.toArray($('.split')).forEach(function(split, i){
     //     gsap.to(split,{onComplete: function() {console.log(split.index);/* split.addClass('active') */}})
     // })

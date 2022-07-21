@@ -378,6 +378,9 @@ footer {
 .loading .text-box .text span {
   opacity: 0;
 }
+.loading .split-logo {
+  position: relative;
+}
 .loading.done {
   display: none;
 }
