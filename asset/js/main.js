@@ -1,4 +1,5 @@
 $(function(){
+    var scrollMove = false;
 
     $('.text').each(function(i,v){
         var arr = new Array();
@@ -172,6 +173,9 @@ $(function(){
     //     scaleY: .8,
     //     opacity: 1
     // }, 'text+=1.2')
+    .set($('.detail-cover'), {
+        xPercent: 100
+    })
     .to($('.left'), 1,{
         x: '14vw',
         opacity: 1,
@@ -193,9 +197,45 @@ $(function(){
         ease: Power4.easeInOut,
         onComplete: function() {$('.loading').addClass('done')}
     }, 'text+=2.3')
-    .to($('.sc-work'), 1, {
+    .to($('.work-logo'), 1, {
+        "box-shadow": "44px 44px 66px rgb(0, 0, 0, .2)",
         opacity: 1
     })
+    loading.addLabel('work')
+    .to($('.work-bg'), 2,{
+        scale: 1,
+        ease: Power4.easeOut
+    }, 'work-=.2')
+    .to($('.work-content'), 2,{
+        scaleY: 1,
+        opacity: 1,
+        ease: Power4.easeOut
+    }, 'work')
+    .set($('.work-title'), {
+        y: 40,
+        skewX: 20,
+    }, 'work')
+    .to($('.work-title'), 1, {
+        y: 0,
+        skewX: 0,
+        scaleY: 1,
+        opacity: 1,
+        ease: Power4.easeOut,
+    }, 'work')
+    .to($('.detail-cover'), 1.6, {
+        xPercent: 200,
+        ease: Power4.easeInOut,
+    }, 'work+=.2')
+    .to($('.work-num'), {
+        opacity: 1
+    }, 'work+=1.4')
+    .to($('.link-detail'), {
+        opacity: 1,
+    }, 'work+=1.4')
+    .to($('.selec-wrap'), {
+        opacity: 1,
+        onComplete: function(){scrollMove = true}
+    }, 'work+=1.4')
     // gsap.utils.toArray($('.split')).forEach(function(split, i){
     //     gsap.to(split,{onComplete: function() {console.log(split.index);/* split.addClass('active') */}})
     // })
@@ -216,7 +256,6 @@ $(function(){
     
     // gsap.delayedCall(1.5, $('.text2').addClass('active'))
 
-    var scrollMove = true;
     var activeIndex = 1;
     $('.active-num').text(activeIndex)
     $('.total-num').text($('.work-item').length)
@@ -247,7 +286,7 @@ $(function(){
         
         gsap.set(otherWork, {
             xPercent: 50,
-            yPercent: 130,
+            yPercent: 225,
             rotate: 60,
             scale: .7,
             skewX: 0,
@@ -255,7 +294,7 @@ $(function(){
         })
         gsap.set(workActivePrev, {
             xPercent: -50,
-            yPercent: -130,
+            yPercent: -225,
             rotate: -90,
             skewX: 0
         })
@@ -286,7 +325,7 @@ $(function(){
                         scale: 1,
                     }, {
                         xPercent: -50,
-                        yPercent: -130,
+                        yPercent: -225,
                         scale: .7,
                         rotate: -70,
                         ease: Power2.easeIn
@@ -361,7 +400,7 @@ $(function(){
     
                     }, {
                         xPercent: -50,
-                        yPercent: -130,
+                        yPercent: -225,
                         scale: .7,
                         rotate: -70,
                         ease: Power2.easeIn
@@ -441,7 +480,7 @@ $(function(){
                         scale: 1,
                     }, {
                         xPercent: 50,
-                        yPercent: 130,
+                        yPercent: 225,
                         scale: .7,
                         rotate: 30,
                         skewX: 20,
@@ -517,7 +556,7 @@ $(function(){
     
                     }, {
                         xPercent: 50,
-                        yPercent: 130,
+                        yPercent: 225,
                         scale: .7,
                         rotate: 30,
                         skewX: 20,
@@ -636,6 +675,25 @@ $(function(){
         } else {
             $('.link-site:nth-child('+(activeIndex-1)+')').addClass('active')
             $('.work-item:nth-child('+(activeIndex-1)+')').addClass('active')
+            }
         }
-    }
+    var page = $('.link-page .bg')
+    page.each(function(){
+        $(this).css("background-color", $(this).data('color'))
+    })
+
+    $('.link-page').click(function(e){
+        e.preventDefault();
+        $(this).parent().addClass('active').siblings().removeClass('active');
+        // change();
+    })
+    // function change() {
+    //     gsap.to($('.page-list.active .overlay'), {
+    //         rotateY: -95
+    //     })
+    // }
+    // gsap.to($('.page-list.active .overlay'), {
+    //     rotateY: -95
+    // })
+    // gsap.to($('.'))
 })

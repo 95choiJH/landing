@@ -281,20 +281,21 @@ footer {
 
 .selec-wrap {
   position: absolute;
-  top: 0;
+  bottom: -5vw;
   right: 0;
   left: 0;
-  height: 12px;
+  height: 1.1vw;
   text-align: center;
   overflow: hidden;
+  opacity: 0;
 }
 
 .selec-text {
   display: block;
   width: 100%;
   height: 100%;
-  font-size: 11px;
-  line-height: 12px;
+  font-size: 1.1vw;
+  line-height: 1.1vw;
   color: rgba(0, 0, 0, 0.45);
   -webkit-animation: select 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
           animation: select 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
@@ -308,17 +309,6 @@ footer {
   left: 0;
   -webkit-animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
           animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
-
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-}
-.pagination img {
-  width: 50px;
-  height: 50px;
 }
 
 @-webkit-keyframes select {
@@ -398,6 +388,7 @@ footer {
   width: 100%;
   height: 100vh;
   padding: 0 6vw;
+  overflow: hidden;
 }
 
 .sc-logo {
@@ -439,29 +430,33 @@ footer {
 }
 
 .sc-work {
-  padding-bottom: 170px;
-  opacity: 0;
+  padding-bottom: 6vw;
 }
 
 .work-img {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 28vw;
   transform: translate(-50%, -50%);
   z-index: 10;
 }
 
 .work-bg {
+  margin: 0 auto;
   width: 20vw;
   height: 32vw;
   background-color: #F2DF3A;
   max-height: 100%;
+  transform: scale(0);
+  transform-origin: bottom left;
 }
 
 .work-contentWrap {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 20vw;
   height: 32vw;
 }
@@ -472,15 +467,16 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  transform: rotate(-10deg);
+  transform: rotate(-10deg) scaleY(0);
   -o-object-position: center;
      object-position: center;
   -o-object-fit: cover;
      object-fit: cover;
   opacity: 0;
+  z-index: 1;
 }
 .work-content.active {
-  z-index: 1;
+  z-index: 2;
   opacity: 1;
 }
 
@@ -492,9 +488,8 @@ footer {
   width: 15vw;
   height: 26vw;
   background-color: #fff;
-  box-shadow: 44px 44px 66px rgba(0, 0, 0, 0.2);
-  transition: 0.5s ease-in-out;
   z-index: 2;
+  opacity: 0;
 }
 .work-logo .link-site {
   position: absolute;
@@ -519,6 +514,54 @@ footer {
      object-fit: contain;
 }
 
+.selec-wrap {
+  position: absolute;
+  bottom: -5vw;
+  right: 0;
+  left: 0;
+  height: 1.1vw;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.selec-text {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 1.1vw;
+  line-height: 1.1vw;
+  color: rgba(0, 0, 0, 0.45);
+  -webkit-animation: select 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+          animation: select 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+.selec-text::before {
+  content: "Scroll to see";
+  display: block;
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  left: 0;
+  -webkit-animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+          animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+@keyframes select {
+  0%, 70% {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+@keyframes select-before {
+  0%, 70% {
+    transform: rotate(30deg) skewX(30deg);
+  }
+  to {
+    transform: rotate(0) skewX(0);
+  }
+}
 .work-text {
   width: 28vw;
   text-align: right;
@@ -528,6 +571,7 @@ footer {
   justify-content: end;
   font-size: 10px;
   line-height: 10px;
+  opacity: 0;
 }
 .work-text .curr-num {
   display: flex;
@@ -568,6 +612,7 @@ footer {
 .work-text .work-title {
   display: inline-block;
   line-height: 1;
+  opacity: 0;
 }
 .work-text .detail-wrap {
   display: block;
@@ -603,6 +648,7 @@ footer {
   margin: 30px 0 0;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.59);
+  opacity: 0;
 }
 .work-text .link-detail::after {
   content: "";
@@ -614,4 +660,133 @@ footer {
   height: 1px;
   background-color: rgba(0, 0, 0, 0.59);
   transition: width 0.5s;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 3vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pagination .page-list.active .overlay {
+  transform: rotateY(-95deg) skew(0, -10deg);
+}
+.pagination .page-list.active .shadow {
+  width: 0;
+}
+.pagination .page-wrap {
+  display: flex;
+  gap: 5vw;
+}
+.pagination .link-page {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.pagination .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 1;
+}
+.pagination .cover .bg {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-shadow: 1px 4px 0.4vw #ececec, 0 0 0 #2C3333, 1px 4px 0.4vw #ececec;
+}
+.pagination .cover .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  background-image: linear-gradient(-90deg, rgba(0, 0, 0, 0.4) 30%, transparent);
+  transform: translateX(0.6em);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.pagination .cover .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ececec;
+  transform: rotateY(-30deg) skew(0, -10deg);
+  transform-origin: left;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.pagination img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  filter: invert(100);
+}
+
+@media (max-width: 750px) {
+  .inner {
+    position: relative;
+    display: block;
+    padding: 0 3vw;
+  }
+  .sc-logo {
+    padding: 0;
+  }
+  .sc-logo .logo {
+    transform: translate(-5vw, -2.7vw) skew(10deg) rotate(-5deg) scale(0.6);
+  }
+  .sc-work {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .work-img {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: none;
+    padding: 80px 10vw 115px;
+  }
+  .work-bg {
+    width: 40vw;
+    height: 100%;
+    margin-top: -15px;
+  }
+  .work-contentWrap {
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: 65vw;
+  }
+  .work-logo {
+    width: 30vw;
+    height: 55vw;
+  }
+  .work-text {
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+  }
+  .work-text .work-num {
+    justify-content: start;
+    padding-left: 3vw;
+  }
+  .work-text .detail-wrap {
+    display: none;
+  }
+  .work-text .link-detail {
+    display: none;
+  }
 }
