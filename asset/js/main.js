@@ -27,27 +27,11 @@ $(function(){
     })
 
     loading = gsap.timeline()
-    // .addLabel('in')
-    // .set($('.text1'), {
-    //     x: "-111vw"
+    // gsap.set($('.work-bg'), {
+    //     xPercent: -50,
+    //     yPercent: -50,
+    //     scale: 0
     // })
-    // .set($('.text2'), {
-    //     x: "75vw"
-    // })
-    // .set($('.text3'), {
-    //     x: "-70vw"
-    // })
-
-    // .to($('.text1'), {
-    //     x: "-15vw"
-    // },'i')
-    // .to($('.text2'), {
-    //     x: "5vw"
-    // },'in')
-    // .to($('.text3'), {
-    //     x: "25vw",
-    // },'in')
-
     const split = gsap.utils.toArray($('.split'))
     const splitLogo = gsap.utils.toArray($('.split-logo'))
     const text1 = gsap.utils.toArray($('.text1 .split'))
@@ -126,9 +110,6 @@ $(function(){
             color: "#A5C9CA",
         }, 'text+=.7')
     })
-    // loading.to($('.other'), {
-    //     opacity: 0
-    // }, 'text+=1')
     loading.to($('.other .origin'), .3, {
         "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
         color: "#ececec"
@@ -148,31 +129,6 @@ $(function(){
         scaleY: 1,
         color: "#ececec",
     }, 'text+=1.2')
-    // .fromTo($('.right .origin'), .2, {
-    //     "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
-    // },{
-    //     "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
-    //     opacity: 1
-    // }, 'text+=1.2')
-    // .fromTo($('.right .top'), .2,{
-    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
-    // },{
-    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.2)",
-    //     x: "1vw",
-    //     yPercent: -9,
-    //     skewX: -13,
-    //     scaleY: 1.2, 
-    //     "height": "50%",
-    //     opacity: 1
-    // }, 'text+=1.2')
-    // .fromTo($('.right .bottom'), .2,{
-    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
-    // },{
-    //     "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
-    //     skewX: 13,
-    //     scaleY: .8,
-    //     opacity: 1
-    // }, 'text+=1.2')
     .set($('.detail-cover'), {
         xPercent: 100
     })
@@ -202,9 +158,8 @@ $(function(){
         opacity: 1
     })
     loading.addLabel('work')
-    .to($('.work-bg'), 2,{
-        scale: 1,
-        ease: Power4.easeOut
+    .to($('.bg-cover'), 1,{
+        "height": "0"
     }, 'work-=.2')
     .to($('.work-content'), 2,{
         scaleY: 1,

@@ -279,71 +279,6 @@ footer {
   height: 15vw;
 }
 
-.selec-wrap {
-  position: absolute;
-  bottom: -5vw;
-  right: 0;
-  left: 0;
-  height: 1.1vw;
-  text-align: center;
-  overflow: hidden;
-  opacity: 0;
-}
-
-.selec-text {
-  display: block;
-  width: 100%;
-  height: 100%;
-  font-size: 1.1vw;
-  line-height: 1.1vw;
-  color: rgba(0, 0, 0, 0.45);
-  -webkit-animation: select 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-          animation: select 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
-.selec-text::before {
-  content: "Scroll to see";
-  display: block;
-  position: absolute;
-  bottom: -40px;
-  right: 0;
-  left: 0;
-  -webkit-animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-          animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
-
-@-webkit-keyframes select {
-  0%, 70% {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-40px);
-  }
-}
-
-@keyframes select {
-  0%, 70% {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-40px);
-  }
-}
-@-webkit-keyframes select-before {
-  0%, 70% {
-    transform: rotate(30deg) skewX(30deg);
-  }
-  to {
-    transform: rotate(0) skewX(0);
-  }
-}
-@keyframes select-before {
-  0%, 70% {
-    transform: rotate(30deg) skewX(30deg);
-  }
-  to {
-    transform: rotate(0) skewX(0);
-  }
-}
 .loading {
   position: fixed;
   top: 0;
@@ -430,35 +365,59 @@ footer {
 }
 
 .sc-work {
-  padding-bottom: 6vw;
+  display: flex;
+  gap: 3vw;
+  align-items: center;
 }
 
 .work-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 28vw;
-  transform: translate(-50%, -50%);
+  position: relative;
+  width: 23vw;
+  height: 34vw;
   z-index: 10;
 }
 
+.work-inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  padding: 4vw;
+}
+
+.bg-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .work-bg {
-  margin: 0 auto;
-  width: 20vw;
-  height: 32vw;
+  width: 100%;
+  height: 100%;
   background-color: #F2DF3A;
-  max-height: 100%;
-  transform: scale(0);
-  transform-origin: bottom left;
+}
+
+.bg-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ececec;
 }
 
 .work-contentWrap {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20vw;
-  height: 32vw;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .work-content {
@@ -481,12 +440,11 @@ footer {
 }
 
 .work-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 15vw;
-  height: 26vw;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
   z-index: 2;
   opacity: 0;
@@ -516,7 +474,7 @@ footer {
 
 .selec-wrap {
   position: absolute;
-  bottom: -5vw;
+  bottom: 5vw;
   right: 0;
   left: 0;
   height: 1.1vw;
@@ -546,12 +504,29 @@ footer {
           animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
 }
 
+@-webkit-keyframes select {
+  0%, 70% {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+
 @keyframes select {
   0%, 70% {
     transform: translateY(0);
   }
   to {
     transform: translateY(-40px);
+  }
+}
+@-webkit-keyframes select-before {
+  0%, 70% {
+    transform: rotate(30deg) skewX(30deg);
+  }
+  to {
+    transform: rotate(0) skewX(0);
   }
 }
 @keyframes select-before {
@@ -564,6 +539,7 @@ footer {
 }
 .work-text {
   width: 28vw;
+  padding: 5vw 0 10vw;
   text-align: right;
 }
 .work-text .work-num {
@@ -738,50 +714,33 @@ footer {
     padding: 0 3vw;
   }
   .sc-logo {
-    padding: 0;
+    font-size: 80px;
   }
   .sc-logo .logo {
     transform: translate(-5vw, -2.7vw) skew(10deg) rotate(-5deg) scale(0.6);
   }
   .sc-work {
+    display: block;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .work-img {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    transform: none;
-    padding: 80px 10vw 115px;
-  }
-  .work-bg {
-    width: 40vw;
-    height: 100%;
-    margin-top: -15px;
-  }
-  .work-contentWrap {
-    top: 45%;
-    transform: translate(-50%, -50%);
-    width: 40vw;
-    height: 65vw;
-  }
-  .work-logo {
-    width: 30vw;
-    height: 55vw;
+    width: 300px;
+    height: 430px;
   }
   .work-text {
-    bottom: 30px;
     width: 100%;
     text-align: center;
+    padding: 0;
   }
   .work-text .work-num {
-    justify-content: start;
-    padding-left: 3vw;
+    display: none;
+  }
+  .work-text .title-box {
+    padding-top: 35px;
+    font-size: 25px;
   }
   .work-text .detail-wrap {
     display: none;
