@@ -45,17 +45,17 @@
     .logo {
         transform: translate(0.1vw ,-2.7vw) skew(10deg) rotate(-5deg);
         .logo-origin {
-            text-shadow: 1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec;
+            text-shadow: 1px 4px .4vw #ececec, 0 0 0 #303030, 1px 4px .4vw #ececec;
             white-space: nowrap;
             line-height: 1;
-            color: rgba(209, 231, 232, 0.5);
+            color: rgba(233, 233, 233, 0.5);
         }
         .logo-top {
             position: absolute;
             left: 0;
             top: 0;
             overflow: hidden;
-            color: #395B64;
+            color: #222;
             text-shadow: .075vw -.015vw .4vw rgba(0,0,0,0.2);
             height: 50%;
             transform: translate(1vw, -9%) skew(-13deg) scale(1, 1.2);
@@ -65,7 +65,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            color: #A5C9CA;
+            color: #868686;
             transform: skew(13deg) scale(1, .8);
             text-shadow: rgb(0 0 0 / 30%) 0.075vw -0.015vw 0.4vw;
             clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
@@ -268,16 +268,16 @@
     .desc+.desc::before {
         content: " ・ ";
     }
-    .link-work {
-        display: block;
-        &:hover .link-detail::after {
-            width: 100%;
-        }
-    }
+    // .link-work {
+    //     display: block;
+    //     &:hover .link-detail::after {
+    //         width: 100%;
+    //     }
+    // }
     .link-detail {
         position: relative;
         display: inline-block;
-        margin: 30px 0 0;
+        margin: 30px 10px 0;
         font-size: 13px;
         color: rgba(0,0,0,.59);
         opacity: 0;
@@ -289,6 +289,9 @@
             width: 0; height: 1px;
             background-color: rgba(0,0,0,.59);
             transition: width .5s;
+        }
+        &:hover::after {
+            width: 100%;
         }
     }
 }
@@ -378,19 +381,7 @@
     .work-img {
         width: 300px; height: 430px;
     }
-    // .bg-wrap {
-    //     width: 40vw; height: 66vw;
-    // }
-    // .work-contentWrap {
-    //     top: 50%;
-    //     transform: translate(-50%, -50%);
-    //     width: 40vw; height: 65vw;
-    // }
-    // .work-logo {
-    //     width: 30vw; height: 55vw;
-    // }
     .work-text {
-    //     bottom: 30px;
         width: 100%;
         text-align: center;
         padding: 0; 

@@ -45,8 +45,8 @@ $(function(){
             "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
             opacity: 1
         },{
-            "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
-            color: "rgba(209, 231, 232, .5)",
+            "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #303030, 1px 4px .4vw #ececec",
+            color: "rgba(233, 233, 233, 0.5)",
             yoyo: 1,
             repeat: 1,
         },'text')
@@ -60,7 +60,7 @@ $(function(){
             skewX: -13,
             scaleY: 1.2, 
             "height": "50%",
-            color: "#395B64",
+            color: "#222",
             opacity: 1,
             yoyo: 1,
             repeat: 1,
@@ -73,7 +73,7 @@ $(function(){
             skewX: 13,
             scaleY: .8, 
             opacity: 1,
-            color: "#A5C9CA",
+            color: "#868686",
             yoyo: 1,
             repeat: 1,
             onComplete: function() {$('.text'+i+'').css('display','none')}
@@ -85,8 +85,8 @@ $(function(){
             "text-shadow": "1px 4px .4vw transparent, 0 0 0 transparent, 1px 4px .4vw transparent",
             opacity: 1
         },{
-            "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #2C3333, 1px 4px .4vw #ececec",
-            color: "rgba(209, 231, 232, .5)",
+            "text-shadow": "1px 4px .4vw #ececec, 0 0 0 #303030, 1px 4px .4vw #ececec",
+            color: "rgba(233, 233, 233, 0.5)",
         }, 'text+=.7')
         .fromTo($('.split-logo .top')[i], .3,{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
@@ -98,7 +98,7 @@ $(function(){
             skewX: -13,
             scaleY: 1.2, 
             "height": "50%",
-            color: "#395B64",
+            color: "#222",
         }, 'text+=.7')
         .fromTo($('.split-logo .bottom')[i], .3,{
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0)",
@@ -107,7 +107,7 @@ $(function(){
             "text-shadow": ".075vw -.015vw .4vw rgba(0,0,0,0.3)",
             skewX: 13,
             scaleY: .8,
-            color: "#A5C9CA",
+            color: "#868686",
         }, 'text+=.7')
     })
     loading.to($('.other .origin'), .3, {
@@ -191,25 +191,6 @@ $(function(){
         opacity: 1,
         onComplete: function(){scrollMove = true}
     }, 'work+=1.4')
-    // gsap.utils.toArray($('.split')).forEach(function(split, i){
-    //     gsap.to(split,{onComplete: function() {console.log(split.index);/* split.addClass('active') */}})
-    // })
-
-    // $('.split').each(function(i){
-        
-    //     setTimeout(() => {$(this).addClass('active');}, 2000);
-    // })
-    // console.log(arr);
-
-    // .addLabel('load')
-    // .to($('.text1'),1,{y: -50, ease: Power4.easeInOut,}, 'load+=.5')
-    // .to($('.text2'),{onComplete: function() {$('.text2').addClass('active')}}, 'load+=.6')
-    // .to($('.text3'),{onComplete: function() {$('.text3').addClass('active')}}, 'load+=1.5')
-    // .to($('.text2'),1,{xPercent: 0, ease: Power4.easeIn, delay: 1}, 'load')
-    // .to($('.text3'),1,{xPercent: 200, ease: Power4.easeIn, delay: 1}, 'load')
-
-    
-    // gsap.delayedCall(1.5, $('.text2').addClass('active'))
 
     var activeIndex = 1;
     $('.active-num').text(activeIndex)
