@@ -155,10 +155,9 @@
 }
 .selec-wrap {
     position: absolute;
-    bottom: 5vw; right: 0; left: 0;
+    bottom:-5vw; right: 0; left: 0;
     height: 1.1vw;
     text-align: center;
-    overflow: hidden;
     opacity: 0;
 }
 .selec-text {
@@ -168,31 +167,6 @@
     line-height: 1.1vw;
     color: rgba(0,0,0,.45);
     animation: select 6s cubic-bezier(.77,0,.175,1) infinite;
-    &::before {
-        content: "Scroll to see";
-        display: block;
-        position: absolute;
-        bottom: -40px;
-        right: 0;
-        left: 0;
-        animation: select-before 6s cubic-bezier(.77,0,.175,1) infinite;
-    }
-}
-@keyframes select {
-    0%,70%{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-40px);
-    }
-}
-@keyframes select-before {
-    0%,70%{
-        transform:rotate(30deg) skewX(30deg);
-    }
-    to{
-        transform:rotate(0) skewX(0);
-    }
 }
 .work-text {
     width: 28vw;

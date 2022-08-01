@@ -474,12 +474,11 @@ footer {
 
 .selec-wrap {
   position: absolute;
-  bottom: 5vw;
+  bottom: -5vw;
   right: 0;
   left: 0;
   height: 1.1vw;
   text-align: center;
-  overflow: hidden;
   opacity: 0;
 }
 
@@ -493,50 +492,7 @@ footer {
   -webkit-animation: select 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
           animation: select 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
 }
-.selec-text::before {
-  content: "Scroll to see";
-  display: block;
-  position: absolute;
-  bottom: -40px;
-  right: 0;
-  left: 0;
-  -webkit-animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-          animation: select-before 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
 
-@-webkit-keyframes select {
-  0%, 70% {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-40px);
-  }
-}
-
-@keyframes select {
-  0%, 70% {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-40px);
-  }
-}
-@-webkit-keyframes select-before {
-  0%, 70% {
-    transform: rotate(30deg) skewX(30deg);
-  }
-  to {
-    transform: rotate(0) skewX(0);
-  }
-}
-@keyframes select-before {
-  0%, 70% {
-    transform: rotate(30deg) skewX(30deg);
-  }
-  to {
-    transform: rotate(0) skewX(0);
-  }
-}
 .work-text {
   width: 28vw;
   padding: 5vw 0 10vw;
