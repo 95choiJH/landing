@@ -1,18 +1,16 @@
 $(function(){
     var scrollMove = false;
-    console.log(window.innerWidth);
 
-    $('.text').each(function(i,v){
+    $('.text').each(function(i){
         var arr = new Array();
         var text = $(this).text();
         var index= 0;
 
         arr = text.split(" ");
-        arr2 = text.split("");
         $(this).empty();
         arr.forEach(function(v){
             if(i == 2) {
-                if(index < 1) {
+                if(index == 0) {
                     $('.text'+(i+1)+'').append(`<div class="split-logo left"><span class="origin">`+v+`</span><span class="top">`+v+`</span><span class="bottom">`+v+`</span></div>`)
                     index++;
                 } else if(index == 1){
@@ -228,6 +226,8 @@ $(function(){
             $('.prev-num').text(activeIndex-1)
         }
         $('.active-num').text(activeIndex)
+
+        
         var workActiveNext_color = workActiveNext.data('color');
         var workActivePrev_color = workActivePrev.data('color');
         var otherWork = $('.work-content').not('active');
@@ -593,7 +593,6 @@ $(function(){
             $('.work-content:nth-child('+($('.work-content').length)+')').addClass('active')
             $('.link-site:nth-child('+($('.work-logo a').length)+')').addClass('active')
             activeIndex = ($('.work-content').length);
-            activeIndex = ($('.link-site').length);
         } else {
             $('.work-content:nth-child('+(activeIndex-1)+')').addClass('active')
             $('.link-site:nth-child('+(activeIndex-1)+')').addClass('active')
@@ -625,13 +624,4 @@ $(function(){
             $('.work-item:nth-child('+(activeIndex-1)+')').addClass('active')
             }
         }
-    var page = $('.link-page .bg')
-    page.each(function(){
-        $(this).css("background-color", $(this).data('color'))
-    })
-
-    $('.link-page').click(function(e){
-        e.preventDefault();
-        $(this).parent().addClass('active').siblings().removeClass('active');
-    })
 })
