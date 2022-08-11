@@ -242,16 +242,13 @@
     .desc+.desc::before {
         content: " ・ ";
     }
-    // .link-work {
-    //     display: block;
-    //     &:hover .link-detail::after {
-    //         width: 100%;
-    //     }
-    // }
+    .work-link {
+        margin-top: 30px;
+    }
     .link-detail {
         position: relative;
         display: inline-block;
-        margin: 30px 10px 0;
+        margin: 0 10px;
         font-size: 13px;
         color: rgba(0,0,0,.59);
         opacity: 0;
