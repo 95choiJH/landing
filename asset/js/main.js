@@ -214,15 +214,15 @@ $(function(){
         var workActiveNext_color = workActiveNext.data('color');
         var workActivePrev_color = workActivePrev.data('color');
         var numHeight = $('.curr-num').height();
-        if (mobileTouch == false) {
-            var wheel = e.originalEvent.wheelDelta;
-        } else {
+        console.log(mobileTouch);
+        if (mobileTouch == true) {
             if (startY > endY) {
                 wheel = -1;
             } else {
                 wheel = 1;
             }
-            mobileTouch = false;
+        } else {
+            var wheel = e.originalEvent.wheelDelta;
         }
         if(scrollMove == true) {
             scrollMove = false;
@@ -626,5 +626,6 @@ $(function(){
         endY = e.originalEvent.changedTouches[0].screenY;
         mobileTouch = true;
         $('html,body').trigger('mousewheel');
+        mobileTouch = false;
     });
 })
