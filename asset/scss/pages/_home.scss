@@ -371,21 +371,15 @@
         width: 100%;
         padding: 0; 
         text-align: center;
-        .curr-num {
-            height: 20px;
-        }
         .work-num {
-            position: absolute;
-            top: -110px; right: 0;
-            font-size: 20px;
-            transform: rotate(90deg);
+            display: none;
         }
         .title-box {
             height: auto;
-            font-size: 45px;
+            font-size: 30px;
         }
         .detail {
-            font-size: 15px;
+            font-size: 10px;
         }
         .link-detail {
             display: none;
@@ -395,9 +389,9 @@
         display: none;
     }
     .selec-wrap {
-        bottom: -40px;
-        .selce-text {
-            font-size: 12px;
+        bottom: -60px;
+        .selec-text {
+            font-size: 20px;
         }
     }
 }
