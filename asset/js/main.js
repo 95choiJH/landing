@@ -604,4 +604,7 @@ $(function(){
             $('.work-item:nth-child('+(activeIndex-1)+')').addClass('active')
             }
         }
+    $(object).on("touchmove", function (e) {
+        alert("1")
+    })
 })
