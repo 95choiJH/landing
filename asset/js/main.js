@@ -1,5 +1,6 @@
 $(function(){
     var scrollMove = false;
+    var mobileTouch = false;
 
     $('.text').each(function(i){
         var arr = new Array();
@@ -185,7 +186,9 @@ $(function(){
     var activeIndex = 1;
     $('.active-num').text(activeIndex)
     $('.total-num').text($('.work-item').length)
-    $('html,body').on("mousewheel",function(e){
+    
+    $('html,body').bind("mousewheel",function(e){
+        var wheelActive = true;
         var workActive = $('.work-content.active')
         if(activeIndex == $('.work-content').length) {
             var workActiveNext = $('.work-content:nth-child(1)')
@@ -211,7 +214,16 @@ $(function(){
         var workActiveNext_color = workActiveNext.data('color');
         var workActivePrev_color = workActivePrev.data('color');
         var numHeight = $('.curr-num').height();
-        var wheel = e.originalEvent.wheelDelta;
+        if (mobileTouch == false) {
+            var wheel = e.originalEvent.wheelDelta;
+        } else {
+            if (startY > endY) {
+                wheel = -1;
+            } else {
+                wheel = 1;
+            }
+            mobileTouch = false;
+        }
         if(scrollMove == true) {
             scrollMove = false;
             
@@ -603,9 +615,16 @@ $(function(){
         } else {
             $('.link-site:nth-child('+(activeIndex-1)+')').addClass('active')
             $('.work-item:nth-child('+(activeIndex-1)+')').addClass('active')
-            }
         }
-    // $(object).on("touchmove", function (e) {
-    //     alert("1")
-    // })
+    }
+    
+    var startY, endY;
+    $(document).on('touchstart',function(e){
+        startY = e.originalEvent.changedTouches[0].screenY;
+    });
+    $(document).on('touchend',function(e){
+        endY = e.originalEvent.changedTouches[0].screenY;
+        mobileTouch = true;
+        $('html,body').trigger('mousewheel');
+    });
 })
