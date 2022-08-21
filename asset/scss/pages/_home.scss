@@ -155,16 +155,14 @@
 }
 .selec-wrap {
     position: absolute;
-    bottom:-5vw; right: 0; left: 0;
-    height: 1.1vw;
+    bottom:-4.5vw; right: 0; left: 0;
     text-align: center;
     opacity: 0;
 }
 .selec-text {
     display: block;
     width: 100%; height: 100%;
-    font-size: 1.1vw;
-    line-height: 1.1vw;
+    font-size: 1.3vw;
     color: rgba(0,0,0,.45);
     animation: select 6s cubic-bezier(.77,0,.175,1) infinite;
 }
@@ -327,22 +325,32 @@
         filter: invert(100);
     }
 }
-@media (max-width: 750px) {
+@media (max-width: 780px) {
     .inner {
         position: relative;
         display: block;
         padding: 0 3vw;
     }
     .sc-logo {
-        font-size: 80px;
+        position: fixed;
+        top: -10px; left: -20px;
+        width: auto;
+        padding: 0;
+        font-size: 75px;
+        transform: scale(.6);
         .logo {
-            transform: translate(-5vw, -2.7vw) skew(10deg) rotate(-5deg) scale(.6);
+            transform: skew(10deg) rotate(-5deg);
+            .logo-top {
+                transform: translate(8px, -5px) skew(-13deg) scale(1, 1.2);
+            }
         }
     }
     .sc-work {
         display: block;
         position: absolute;
         top: 50%; left: 50%;
+        width: 100%; height: 100%;
+        padding: 15vh 2vw 5vh;
         transform: translate(-50%, -50%);
         
     }
@@ -351,23 +359,37 @@
     }
     .work-img {
         width: 300px; height: 430px;
+        margin: 0 auto;
     }
     .work-text {
+        position: fixed;
+        left: 0; bottom: 30px;
         width: 100%;
-        text-align: center;
         padding: 0; 
+        text-align: center;
         .work-num {
-            display: none;
+        position: fixed;
+        bottom: 180px; right: 0;
+        transform: rotate(90deg);
         }
         .title-box {
-            padding-top: 35px;
+            height: auto;
             font-size: 25px;
+            line-height: 50px;
         }
         .detail-wrap {
-            display: none;
         }
         .link-detail {
             display: none;
+        }
+    }
+    .work-link {
+        display: none;
+    }
+    .selec-wrap {
+        bottom: -7vh;
+        .selce-text {
+            font-size: 12px;
         }
     }
 }

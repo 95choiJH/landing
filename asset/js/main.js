@@ -136,36 +136,16 @@ $(function(){
         opacity: 1,
         ease: Power4.easeInOut
     }, 'text+=1.5')
-    if(window.innerWidth <= 750) {
-        loading.to($('.left'), 1,{
-            x: '-11.3vw',
-            y: '-50.5vw',
-            scale: .73,
-            ease: Power4.easeInOut, 
-        }, 'text+=2.3')
-        .to($('.right'), 1,{
-            x: '-43.5vw',
-            y: '-50.5vw',
-            scale: .73,
-            ease: Power4.easeInOut,
-            onComplete: function() {$('.loading').addClass('done')}
-        }, 'text+=2.3')
-    } else {
-        loading.to($('.left'), 1,{
-            x: '-17.9vw',
-            y: '-5.5vw',
-            ease: Power4.easeInOut,
-        }, 'text+=2.3')
-        .to($('.right'), 1,{
-            x: '-46.2vw',
-            y: '-5.5vw',
-            ease: Power4.easeInOut,
-            onComplete: function() {$('.loading').addClass('done')}
-        }, 'text+=2.3')
-    }
-    loading.to($('.work-logo'), 1, {
+    .to($('.loading .text-box'),{
+        opacity: 0
+    })
+    .to($('.loading'), .5, {
+        opacity: 0,
+        onComplete: function() {$('.loading').addClass('done')}
+    })
+    .to($('.work-logo'), 1, {
         "box-shadow": "44px 44px 66px rgb(0, 0, 0, .2)",
-        opacity: 1
+        opacity: 1,
     })
     loading.addLabel('work')
     .to($('.bg-cover'), 1,{
