@@ -210,6 +210,10 @@ $(function(){
         
         var workActiveNext_color = workActiveNext.data('color');
         var workActivePrev_color = workActivePrev.data('color');
+        var wheel = e.originalEvent.wheelDelta;
+        if(scrollMove == true) {
+            scrollMove = false;
+            
         var otherWork = $('.work-content').not('active');
         
         gsap.set(otherWork, {
@@ -226,10 +230,6 @@ $(function(){
             rotate: -90,
             skewX: 0
         })
-        var wheel = e.originalEvent.wheelDelta;
-        if(scrollMove == true) {
-            scrollMove = false;
-            
             gsap.set($('.prev-num'), {
                 x: 0,
                 y: 0
