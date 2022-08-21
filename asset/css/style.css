@@ -683,7 +683,10 @@ footer {
     transform: translate(8px, -5px) skew(-13deg) scale(1, 1.2);
   }
   .sc-work {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 41px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -701,16 +704,17 @@ footer {
     margin: 0 auto;
   }
   .work-text {
-    position: fixed;
+    flex-grow: 1;
+    position: relative;
     left: 0;
-    bottom: 30px;
+    bottom: 0;
     width: 100%;
     padding: 0;
     text-align: center;
   }
   .work-text .work-num {
-    position: fixed;
-    bottom: 180px;
+    position: absolute;
+    top: -80px;
     right: 0;
     transform: rotate(90deg);
   }
@@ -726,7 +730,7 @@ footer {
     display: none;
   }
   .selec-wrap {
-    bottom: -7vh;
+    bottom: -40px;
   }
   .selec-wrap .selce-text {
     font-size: 12px;
