@@ -210,6 +210,7 @@ $(function(){
         
         var workActiveNext_color = workActiveNext.data('color');
         var workActivePrev_color = workActivePrev.data('color');
+        var numHeight = $('.curr-num').height();
         var wheel = e.originalEvent.wheelDelta;
         if(scrollMove == true) {
             scrollMove = false;
@@ -286,11 +287,11 @@ $(function(){
                         ease: Power3.easeOut
                     }, 'scroll+=.8')
                     .to($('.active-num'), .8, {
-                        y: -10,
+                        y: -numHeight,
                         ease: Power4.easeIn,
                     }, 'scroll')
                     .to($('.next-num'), {
-                        y: -10
+                        y: -numHeight
                     },'scroll+=.8')
                     .to($('.work-title'), .8,{
                         y:-40,
@@ -361,11 +362,11 @@ $(function(){
                         ease: Power3.easeOut
                     }, 'scroll+=.8')
                     .to($('.active-num'), .8, {
-                        y: -10,
+                        y: -numHeight,
                         ease: Power4.easeIn,
                     }, 'scroll')
                     .to($('.next-num'), {
-                        y: -10
+                        y: -numHeight
                     },'scroll+=.8')
                     .to($('.work-title'), .8,{
                         y:-40,
@@ -442,11 +443,11 @@ $(function(){
                         ease: Power3.easeOut
                     }, 'scroll+=.8')
                     .to($('.active-num'), .8, {
-                        y: 10,
+                        y: numHeight,
                         ease: Power4.easeIn,
                     }, 'scroll')
                     .to($('.prev-num'), {
-                        y: 10
+                        y: numHeight
                     },'scroll+=.8')
                     .to($('.work-title'), .8,{
                         y: 40,
@@ -518,11 +519,11 @@ $(function(){
                         ease: Power3.easeOut
                     }, 'scroll+=.8')
                     .to($('.active-num'), .8, {
-                        y: 10,
+                        y: numHeight,
                         ease: Power4.easeIn,
                     }, 'scroll')
                     .to($('.prev-num'), {
-                        y: 10
+                        y: numHeight
                     },'scroll+=.8')
                     .to($('.work-title'), .8,{
                         y: 40,
@@ -604,7 +605,7 @@ $(function(){
             $('.work-item:nth-child('+(activeIndex-1)+')').addClass('active')
             }
         }
-    $(object).on("touchmove", function (e) {
-        alert("1")
-    })
+    // $(object).on("touchmove", function (e) {
+    //     alert("1")
+    // })
 })

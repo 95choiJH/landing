@@ -500,7 +500,7 @@ footer {
   display: flex;
   justify-content: end;
   font-size: 10px;
-  line-height: 10px;
+  line-height: 1;
   opacity: 0;
 }
 .work-text .curr-num {
@@ -712,10 +712,14 @@ footer {
     padding: 0;
     text-align: center;
   }
+  .work-text .curr-num {
+    height: 20px;
+  }
   .work-text .work-num {
     position: absolute;
-    top: -90px;
+    top: -110px;
     right: 0;
+    font-size: 20px;
     transform: rotate(90deg);
   }
   .work-text .title-box {
