@@ -58,14 +58,6 @@ table {
 /*
     @세팅구역
 */
-body {
-  font-size: 14px;
-  color: var(--colorBg1);
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 input,
 textarea,
 select,
