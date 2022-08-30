@@ -375,8 +375,10 @@
             display: none;
         }
         .title-box {
+            position: relative;
             height: auto;
             font-size: 30px;
+            z-index: 1;
         }
         .detail {
             font-size: 10px;

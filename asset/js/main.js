@@ -1,4 +1,12 @@
 $(function(){
+    $(window).resize(function(){
+        var windowWidth = $(window).outerWidth();
+        if(windowWidth > 800) {
+            console.log("실행");
+        }
+    })
+    
+    
     var scrollMove = false;
     var mobileTouch = false;
 
